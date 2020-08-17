@@ -54,7 +54,7 @@
 <meta property="og:description" content="PART 1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-17T14:09:37.724Z">
+<meta property="article:modified_time" content="2020-08-17T14:28:43.801Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-17 20:30:00 / Modified: 22:09:37" itemprop="dateCreated datePublished" datetime="2020-08-17T20:30:00+08:00">2020-08-17</time>
+              <time title="Created: 2020-08-17 20:30:00 / Modified: 22:28:43" itemprop="dateCreated datePublished" datetime="2020-08-17T20:30:00+08:00">2020-08-17</time>
             </span>
 
           
@@ -209,7 +209,7 @@
 
       
         <p>PART 1<br><a id="more"></a></p>
-<h2 id="A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><a href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem" class="headerlink" title="A CPA-Secure PKE scheme based on the DBDH problem"></a>A CPA-Secure PKE scheme based on the DBDH problem</h2><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}$.</p>
+<h2 id="A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><a href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem" class="headerlink" title="A CPA-Secure PKE scheme based on the DBDH problem"></a>A CPA-Secure PKE scheme based on the DBDH problem</h2><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}$. We can set the ciphertext as $T\cdot m$, and the ``random-looking” value $T=e(g,g)^{abc}=e(g^a,g^b)^c=e(g_1,g_2)^r$ (in the real world).</p>
 <h3 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h3><ul>
 <li>Setup$(1^\lambda)\rightarrow pp$<script type="math/tex; mode=display">D=(p,\mathbb{G},\mathbb{G}_T,e),g\xleftarrow{$}\mathbb{G}</script><script type="math/tex; mode=display">pp=(D,g).</script></li>
 <li>KeyGen$(pp)\rightarrow (pk,sk)$<script type="math/tex; mode=display">\alpha\xleftarrow{$}\mathbb{Z}_p^*,g_1=g^\alpha,g_2\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">pk=(g_1,g_2),sk=\alpha.</script></li>
