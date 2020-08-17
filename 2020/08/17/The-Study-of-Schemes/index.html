@@ -46,19 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. $\cal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/01/22/hello-world/index.html">
+<meta property="og:title" content="The Study of Schemes (PART 1)">
+<meta property="og:url" content="http://yoursite.com/2020/08/17/The-Study-of-Schemes/index.html">
 <meta property="og:site_name" content="Alan1898&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. $\cal">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-22T07:05:46.000Z">
-<meta property="article:modified_time" content="2020-01-22T14:50:00.548Z">
+<meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
+<meta property="article:modified_time" content="2020-08-17T12:43:03.310Z">
 <meta property="article:author" content="Alan1898">
+<meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/01/22/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2020/08/17/The-Study-of-Schemes/">
 
 
 <script id="page-configurations">
@@ -70,7 +71,7 @@
   };
 </script>
 
-  <title>Hello World | Alan1898's Blog</title>
+  <title>The Study of Schemes (PART 1) | Alan1898's Blog</title>
   
 
 
@@ -169,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/The-Study-of-Schemes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -182,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          The Study of Schemes (PART 1)
         </h1>
 
         <div class="post-meta">
@@ -193,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-22 15:05:46 / Modified: 22:50:00" itemprop="dateCreated datePublished" datetime="2020-01-22T15:05:46+08:00">2020-01-22</time>
+              <time title="Created: 2020-08-17 20:30:00 / Modified: 20:43:03" itemprop="dateCreated datePublished" datetime="2020-08-17T20:30:00+08:00">2020-08-17</time>
             </span>
 
           
@@ -207,15 +208,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. <font color=red>$\cal B$ does not know how $\cal A$ breaks the proposed encryption scheme but only receives the guess $c’$ of $c$ from $\cal A$.</font><br><a id="more"></a></p>
+<h2 id="A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><a href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem" class="headerlink" title="A CPA-Secure PKE scheme based on the DBDH problem"></a>A CPA-Secure PKE scheme based on the DBDH problem</h2><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}$.</p>
+<h2 id="Simulation-of-the-challenge-ciphertext"><a href="#Simulation-of-the-challenge-ciphertext" class="headerlink" title="Simulation of the challenge ciphertext"></a>Simulation of the challenge ciphertext</h2><p>The simulator must embed the target $Z$ in the challenge ciphertext such that it satisfies the following conditions.</p>
+<ul>
+<li>If $Z$ is true, the true challenge ciphertext is a correct ciphertext whose encrypted message is $m_c\in\{m_0,m_1\}$. The simulation should be indistinguishable and the adversary should be able to guess the encrypted message correctly with non-negligible advantage defined in the breaking assumption.</li>
+<li>If $Z$ is false, the false challenge ciphertext (can be either correct or incorrect) cannot be an encryption of the message $m_c$ from the point of view of the adversary. The adversary should not be able to guess the encrypted message correctly except with negligible advantage.</li>
+</ul>
+<font color=red>We program the simulation in such a way for the reason that we hope to maximize the advantages of the simulator solving the underlying hard problem.</font>
+
+<h2 id="The-advantage-of-solving-the-underlying-decisional-hard-problem"><a href="#The-advantage-of-solving-the-underlying-decisional-hard-problem" class="headerlink" title="The advantage of solving the underlying decisional hard problem"></a>The advantage of solving the underlying decisional hard problem</h2><p>$Solve$: The simulator solves the underlying decisional hard problem.<br>$Guess_{True}$: The simulator guesses $Z$ is true.<br>$Guess_{False}$: The simulator guesses $Z$ is false.<br>The advantage of solving the underlying hard problem is<br>\begin{eqnarray}<br>\varepsilon_R &amp;=&amp; Pr[Solve|Z=True]-\frac12+Pr[Solve|Z=False]-\frac12 \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-\frac12+Pr[Guess_{False}|Z=False]-\frac12 \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-(1-Pr[Guess_{False}|Z=False]) \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-Pr[Guess_{True}|Z=False]. \nonumber<br>\end{eqnarray}<br>$SS$: The event of successful simulation.<br>$US$: The event of unsuccessful simulation.<br>According to the way that the simulator use the adversary’s attack to break the underlying decisional hard problem, we have<br>\begin{eqnarray}<br>Pr[Guess_{True}|SS]=Pr[c’=c]. \nonumber<br>\end{eqnarray}<br>If the simulation is unsuccessful, the simulator will randomly guess $Z$ by itself, and thus we have<br>\begin{eqnarray}<br>Pr[Guess_{True}|US]=\frac12. \nonumber<br>\end{eqnarray}<br>$P_T$: The probability of the adversary breaking the challenge ciphertext if $Z$ is true.<br>$P_F$: The probability of the adversary breaking the challenge ciphertext if $Z$ is false.<br>By applying the law of total probability, we have<br>\begin{eqnarray}<br>&amp;&amp;Pr[Guess_{True}|Z=True] \nonumber \\<br>&amp;=&amp;Pr[Guess_{Ture}|Z=True\land SS]Pr[SS]+Pr[Guess_{Ture}|Z=True\land US]Pr[US] \nonumber \\<br>&amp;=&amp;Pr[c’=c|Z=True]Pr[SS]+\frac12Pr[US] \nonumber \\<br>&amp;=&amp;P_T\cdot P_S+\frac12(1-P_S). \nonumber<br>\end{eqnarray}<br>\begin{eqnarray}<br>&amp;&amp;Pr[Guess_{True}|Z=False] \nonumber \\<br>&amp;=&amp;Pr[Guess_{Ture}|Z=False\land SS]Pr[SS]+Pr[Guess_{Ture}|Z=False\land US]Pr[US] \nonumber \\<br>&amp;=&amp;Pr[c’=c|Z=False]Pr[SS]+\frac12Pr[US] \nonumber \\<br>&amp;=&amp;P_F\cdot P_S+\frac12(1-P_S). \nonumber<br>\end{eqnarray}<br>So the advantage of solving the underlying hard problem is<br>\begin{eqnarray}<br>\varepsilon_R = P_S(P_T-P_F). \nonumber<br>\end{eqnarray}</p>
 
     </div>
 
@@ -224,17 +226,20 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Security-Reduction/" rel="tag"># Security Reduction</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/01/22/Security-Reduction-for-Encryption-Under-Decisional-Assumptions/" rel="next" title="Security Reduction for Encryption Under Decisional Assumptions">
-      Security Reduction for Encryption Under Decisional Assumptions <i class="fa fa-chevron-right"></i>
+    <a href="/2020/01/23/Zero-Knowledge-Proof/" rel="prev" title="Overview of Zero-Knowledge Proof">
+      <i class="fa fa-chevron-left"></i> Overview of Zero-Knowledge Proof
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -294,7 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><span class="nav-number">1.</span> <span class="nav-text">A CPA-Secure PKE scheme based on the DBDH problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simulation-of-the-challenge-ciphertext"><span class="nav-number">2.</span> <span class="nav-text">Simulation of the challenge ciphertext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-advantage-of-solving-the-underlying-decisional-hard-problem"><span class="nav-number">3.</span> <span class="nav-text">The advantage of solving the underlying decisional hard problem</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -376,7 +381,7 @@
 <script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -400,6 +405,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
