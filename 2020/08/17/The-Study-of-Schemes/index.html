@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. $\cal">
+  <meta name="description" content="PART 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Study of Schemes (PART 1)">
 <meta property="og:url" content="http://yoursite.com/2020/08/17/The-Study-of-Schemes/index.html">
 <meta property="og:site_name" content="Alan1898&#39;s Blog">
-<meta property="og:description" content="Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. $\cal">
+<meta property="og:description" content="PART 1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-17T12:43:03.310Z">
+<meta property="article:modified_time" content="2020-08-17T14:09:37.724Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-17 20:30:00 / Modified: 20:43:03" itemprop="dateCreated datePublished" datetime="2020-08-17T20:30:00+08:00">2020-08-17</time>
+              <time title="Created: 2020-08-17 20:30:00 / Modified: 22:09:37" itemprop="dateCreated datePublished" datetime="2020-08-17T20:30:00+08:00">2020-08-17</time>
             </span>
 
           
@@ -208,17 +208,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Suppose there exists an adversary $\cal A$ who can break the proposed encryption scheme in the corresponding security model. We construct a simulator $\cal B$ to solve a decisional hard problem. <font color=red>$\cal B$ does not know how $\cal A$ breaks the proposed encryption scheme but only receives the guess $c’$ of $c$ from $\cal A$.</font><br><a id="more"></a></p>
+        <p>PART 1<br><a id="more"></a></p>
 <h2 id="A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><a href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem" class="headerlink" title="A CPA-Secure PKE scheme based on the DBDH problem"></a>A CPA-Secure PKE scheme based on the DBDH problem</h2><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}$.</p>
-<h2 id="Simulation-of-the-challenge-ciphertext"><a href="#Simulation-of-the-challenge-ciphertext" class="headerlink" title="Simulation of the challenge ciphertext"></a>Simulation of the challenge ciphertext</h2><p>The simulator must embed the target $Z$ in the challenge ciphertext such that it satisfies the following conditions.</p>
-<ul>
-<li>If $Z$ is true, the true challenge ciphertext is a correct ciphertext whose encrypted message is $m_c\in\{m_0,m_1\}$. The simulation should be indistinguishable and the adversary should be able to guess the encrypted message correctly with non-negligible advantage defined in the breaking assumption.</li>
-<li>If $Z$ is false, the false challenge ciphertext (can be either correct or incorrect) cannot be an encryption of the message $m_c$ from the point of view of the adversary. The adversary should not be able to guess the encrypted message correctly except with negligible advantage.</li>
+<h3 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h3><ul>
+<li>Setup$(1^\lambda)\rightarrow pp$<script type="math/tex; mode=display">D=(p,\mathbb{G},\mathbb{G}_T,e),g\xleftarrow{$}\mathbb{G}</script><script type="math/tex; mode=display">pp=(D,g).</script></li>
+<li>KeyGen$(pp)\rightarrow (pk,sk)$<script type="math/tex; mode=display">\alpha\xleftarrow{$}\mathbb{Z}_p^*,g_1=g^\alpha,g_2\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">pk=(g_1,g_2),sk=\alpha.</script></li>
+<li>Encrypt$(m\in\mathbb{G}_T,pk)$<script type="math/tex; mode=display">s\xleftarrow{$}\mathbb{Z}_p^*.</script><script type="math/tex; mode=display">CT=(e(g_1,g_2)^r\cdot m,g^r).</script></li>
+<li>Decrypt$(CT=(C_1,C_2),sk)$<script type="math/tex; mode=display">\frac{C_1}{e(C_2^\alpha,g_2)}=m.</script></li>
 </ul>
-<font color=red>We program the simulation in such a way for the reason that we hope to maximize the advantages of the simulator solving the underlying hard problem.</font>
-
-<h2 id="The-advantage-of-solving-the-underlying-decisional-hard-problem"><a href="#The-advantage-of-solving-the-underlying-decisional-hard-problem" class="headerlink" title="The advantage of solving the underlying decisional hard problem"></a>The advantage of solving the underlying decisional hard problem</h2><p>$Solve$: The simulator solves the underlying decisional hard problem.<br>$Guess_{True}$: The simulator guesses $Z$ is true.<br>$Guess_{False}$: The simulator guesses $Z$ is false.<br>The advantage of solving the underlying hard problem is<br>\begin{eqnarray}<br>\varepsilon_R &amp;=&amp; Pr[Solve|Z=True]-\frac12+Pr[Solve|Z=False]-\frac12 \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-\frac12+Pr[Guess_{False}|Z=False]-\frac12 \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-(1-Pr[Guess_{False}|Z=False]) \nonumber \\<br>&amp;=&amp; Pr[Guess_{True}|Z=True]-Pr[Guess_{True}|Z=False]. \nonumber<br>\end{eqnarray}<br>$SS$: The event of successful simulation.<br>$US$: The event of unsuccessful simulation.<br>According to the way that the simulator use the adversary’s attack to break the underlying decisional hard problem, we have<br>\begin{eqnarray}<br>Pr[Guess_{True}|SS]=Pr[c’=c]. \nonumber<br>\end{eqnarray}<br>If the simulation is unsuccessful, the simulator will randomly guess $Z$ by itself, and thus we have<br>\begin{eqnarray}<br>Pr[Guess_{True}|US]=\frac12. \nonumber<br>\end{eqnarray}<br>$P_T$: The probability of the adversary breaking the challenge ciphertext if $Z$ is true.<br>$P_F$: The probability of the adversary breaking the challenge ciphertext if $Z$ is false.<br>By applying the law of total probability, we have<br>\begin{eqnarray}<br>&amp;&amp;Pr[Guess_{True}|Z=True] \nonumber \\<br>&amp;=&amp;Pr[Guess_{Ture}|Z=True\land SS]Pr[SS]+Pr[Guess_{Ture}|Z=True\land US]Pr[US] \nonumber \\<br>&amp;=&amp;Pr[c’=c|Z=True]Pr[SS]+\frac12Pr[US] \nonumber \\<br>&amp;=&amp;P_T\cdot P_S+\frac12(1-P_S). \nonumber<br>\end{eqnarray}<br>\begin{eqnarray}<br>&amp;&amp;Pr[Guess_{True}|Z=False] \nonumber \\<br>&amp;=&amp;Pr[Guess_{Ture}|Z=False\land SS]Pr[SS]+Pr[Guess_{Ture}|Z=False\land US]Pr[US] \nonumber \\<br>&amp;=&amp;Pr[c’=c|Z=False]Pr[SS]+\frac12Pr[US] \nonumber \\<br>&amp;=&amp;P_F\cdot P_S+\frac12(1-P_S). \nonumber<br>\end{eqnarray}<br>So the advantage of solving the underlying hard problem is<br>\begin{eqnarray}<br>\varepsilon_R = P_S(P_T-P_F). \nonumber<br>\end{eqnarray}</p>
-
+<h3 id="CPA-Security"><a href="#CPA-Security" class="headerlink" title="CPA-Security"></a>CPA-Security</h3><p><strong>Setup.</strong></p>
+<script type="math/tex; mode=display">g_1=g^a,g_2=g^b.</script><p><center>(implicitly $\alpha=a$ but unknown to $\mathcal{B}$)</center></p>
+<script type="math/tex; mode=display">\mathcal{A}\xrightarrow{g_1,g_2}\mathcal{B}.</script><p><strong>Challenge.</strong></p>
+<script type="math/tex; mode=display">m_0,m_1\leftarrow\mathcal{A}(g_1,g_2),m_0,m_1\in\mathbb{G}_T.</script><script type="math/tex; mode=display">\{0,1\}\xleftarrow{$}\mathcal{B}.</script><script type="math/tex; mode=display">CT^*\leftarrow\mathcal{B}:CT^*=(T\cdot m_b,g^c).</script><p><strong>Guess.</strong></p>
+<ul>
+<li>If $T=e(g,g)^{abc}$, then<script type="math/tex; mode=display">CT^*=(e(g,g)^{abc}\cdot m_b,g^c)=(e(g_1,g_2)^c\cdot m_b,g^c)=(e(g_1,g_2)^r\cdot m_b,g^r).</script>Thus, the simulated scheme is identical to the real scheme from the view of $\mathcal{A}$.</li>
+<li>If $T$ is a random term in $\mathbb{G}$, then $CT^*$ is independent of $m_b$ and does not have any information of $m_b$.</li>
+</ul>
+<h2 id="A-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem-also-based-on-the-D-l-wBDHI-problem"><a href="#A-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem-also-based-on-the-D-l-wBDHI-problem" class="headerlink" title="A CPA-Secure IBE scheme based on the DBDH problem (also based on the D-l-wBDHI* problem)"></a>A CPA-Secure IBE scheme based on the DBDH problem (also based on the D-l-wBDHI* problem)</h2><h3 id="Construction-1"><a href="#Construction-1" class="headerlink" title="Construction"></a>Construction</h3><h3 id="CPA-Security-from-the-DBDH-problem"><a href="#CPA-Security-from-the-DBDH-problem" class="headerlink" title="CPA-Security from the DBDH problem"></a>CPA-Security from the DBDH problem</h3><h3 id="CPA-Security-from-the-D-l-wBDHI-problem"><a href="#CPA-Security-from-the-D-l-wBDHI-problem" class="headerlink" title="CPA-Security from the D-l-wBDHI* problem"></a>CPA-Security from the D-l-wBDHI* problem</h3>
     </div>
 
     
@@ -299,7 +305,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><span class="nav-number">1.</span> <span class="nav-text">A CPA-Secure PKE scheme based on the DBDH problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simulation-of-the-challenge-ciphertext"><span class="nav-number">2.</span> <span class="nav-text">Simulation of the challenge ciphertext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-advantage-of-solving-the-underlying-decisional-hard-problem"><span class="nav-number">3.</span> <span class="nav-text">The advantage of solving the underlying decisional hard problem</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><span class="nav-number">1.</span> <span class="nav-text">A CPA-Secure PKE scheme based on the DBDH problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction"><span class="nav-number">1.1.</span> <span class="nav-text">Construction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPA-Security"><span class="nav-number">1.2.</span> <span class="nav-text">CPA-Security</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem-also-based-on-the-D-l-wBDHI-problem"><span class="nav-number">2.</span> <span class="nav-text">A CPA-Secure IBE scheme based on the DBDH problem (also based on the D-l-wBDHI* problem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction-1"><span class="nav-number">2.1.</span> <span class="nav-text">Construction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPA-Security-from-the-DBDH-problem"><span class="nav-number">2.2.</span> <span class="nav-text">CPA-Security from the DBDH problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPA-Security-from-the-D-l-wBDHI-problem"><span class="nav-number">2.3.</span> <span class="nav-text">CPA-Security from the D-l-wBDHI* problem</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
