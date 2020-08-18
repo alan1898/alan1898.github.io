@@ -54,7 +54,7 @@
 <meta property="og:description" content="PART 1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-18T08:14:28.133Z">
+<meta property="article:modified_time" content="2020-08-18T08:16:08.333Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-18 16:14:28" itemprop="dateModified" datetime="2020-08-18T16:14:28+08:00">2020-08-18</time>
+                <time title="Modified: 2020-08-18 16:16:08" itemprop="dateModified" datetime="2020-08-18T16:16:08+08:00">2020-08-18</time>
               </span>
 
           
@@ -238,7 +238,7 @@
 <p>如果$x$和$y$均不含$a$, 也不含$b$, 那么为了使私钥$g^{ab+(xI+y)r}$不含$ab$的幂次, $r$需要包含一个$ab$的某个负数倍数, 因此$\mathcal{B}$无法计算$g^r$.</p>
 <p>如果$y$含$a$或$b$, 那么$g^{xI^\ast+y}$含$a$或$b$的幂次, 攻击将无法被归约到解决困难问题上.</p>
 <p>特别地, 当$y=0$且$x$含$a$或$b$时, 此时私钥结构为$g_2^\alpha\cdot(u^I)^r$, 那么$g^{xI^\ast}$含$a$或$b$的幂次, 攻击将无法被归约到解决困难问题上.</p>
-<p>选择随机元素$t_1,t_2\xleftarrow{$}\mathbb{Z}_p^\ast$, 令$x=t_1a,y=-xI^\ast+t_2=-t_1aI^\ast+t_2$. 对于$y$的赋值, 一方面可以使攻击可以被归约到解决困难问题上, 另一方面当考虑完整的加密方案的归约时, $(u^{I^\ast}v)^c$可以被$\mathcal{B}$计算出来. 可以看出, 该归约过程需要敌手首先声明所要攻击的身份.</p>
+<p>选择随机元素$t_1,t_2\xleftarrow{$}\mathbb{Z}_p^\ast$, 令$x=t_1a,y=-xI^\ast+t_2=-t_1aI^\ast+t_2$. 对于$y$的赋值, 一方面使攻击可以被归约到解决困难问题上, 另一方面当考虑完整的加密方案的归约时, $(u^{I^\ast}v)^c$可以被$\mathcal{B}$计算出来. 可以看出, 该归约过程需要敌手首先声明所要攻击的身份.</p>
 <ul>
 <li><p>对于私钥查询: $g^{ab}\cdot g^{(xI+y)r}=g^{ab+(t_1a(I-I^\ast)+t_2)r}$. 选择随机元素$\tilde{r}\xleftarrow{$}\mathbb{Z}_p^\ast$, 令$r=-\frac{b}{t_1(I-I^\ast)}+\tilde{r}$.<br>\begin{eqnarray}<br>g^{ab}\cdot g^{(xI+y)r}&amp;=&amp;g^{ab+(t_1a(I-I^\ast)+t_2)r} \nonumber \\<br>&amp;=&amp;g^{ab+(t_1a(I-I^\ast)+t_2)(-\frac{b}{t_1(I-I^\ast)}+\tilde{r})} \nonumber \\<br>&amp;=&amp;g^{t_1a(I-I^\ast)\tilde{r}-\frac{bt_2}{t_1(I-I^\ast)}+t_2\tilde{r}} \nonumber \\<br>&amp;=&amp;(g^a)^{t_1(I-I^\ast)\tilde{r}}(g^b)^{-\frac{t_2}{t_1(I-I^\ast)}}g^{t_2\tilde{r}}. \nonumber<br>\end{eqnarray}<br>可以被$\mathcal{B}$计算出来. 同时,<br>\begin{eqnarray}<br>g^r&amp;=&amp;g^{-\frac{b}{t_1(I-I^\ast)}+\tilde{r}} \nonumber \\<br>&amp;=&amp;(g^b)^{-\frac{1}{t_1(I-I^\ast)}}g^\tilde{r}. \nonumber<br>\end{eqnarray}<br>可以被$\mathcal{B}$计算出来.</p>
 </li>
