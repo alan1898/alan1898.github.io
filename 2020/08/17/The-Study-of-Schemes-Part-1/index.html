@@ -54,7 +54,7 @@
 <meta property="og:description" content="PART 1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-18T08:16:08.333Z">
+<meta property="article:modified_time" content="2020-08-18T14:54:44.214Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-18 16:16:08" itemprop="dateModified" datetime="2020-08-18T16:16:08+08:00">2020-08-18</time>
+                <time title="Modified: 2020-08-18 22:54:44" itemprop="dateModified" datetime="2020-08-18T22:54:44+08:00">2020-08-18</time>
               </span>
 
           
@@ -230,8 +230,8 @@
 <li>If $T=e(g,g)^{abc}$, then<script type="math/tex; mode=display">CT^*=(e(g,g)^{abc}\cdot m_b,g^c)=(e(g_1,g_2)^c\cdot m_b,g^c)=(e(g_1,g_2)^s\cdot m_b,g^s).</script>Thus, the simulated scheme is identical to the real scheme from the view of $\mathcal{A}$.</li>
 <li>If $T$ is a random term in $\mathbb{G}_T$, then $CT^*$ is independent of $m_b$ and does not have any information of $m_b$.</li>
 </ul>
-<h2 id="An-IND-sID-CPA-Secure-IBE-scheme"><a href="#An-IND-sID-CPA-Secure-IBE-scheme" class="headerlink" title="An IND-sID-CPA-Secure IBE scheme"></a>An IND-sID-CPA-Secure IBE scheme</h2><p>The main challenge to construct an IND-sID-CPA-Secure IBE scheme is to ensure that any PPT adversary cannot produce a secret key for a new identity even if it is given the access to the secret key generation oracle KeyGen$(\cdot)$ compared with a CPA-Secure PKE scheme. In the security reduction, the new secret key should be used to solve a computational hard problem.</p>
-<h3 id="Using-the-DBDH-problem"><a href="#Using-the-DBDH-problem" class="headerlink" title="Using the DBDH problem"></a>Using the DBDH problem</h3><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}_T$. Under the assumption that the DBDH problem is hard, the CDH problem (given $(g,g^a,g^b)$, compute $Z=g^{ab}$) in group $\mathbb{G}$ must also be hard. Otherwise, the DBDH problem can be solved effectively by computing $e(g^{ab},g^c)=g^{abc}$ and comparing the result with $T$.</p>
+<h2 id="An-IND-sID-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem"><a href="#An-IND-sID-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem" class="headerlink" title="An IND-sID-CPA-Secure IBE scheme based on the DBDH problem"></a>An IND-sID-CPA-Secure IBE scheme based on the DBDH problem</h2><p>The main challenge to construct an IND-sID-CPA-Secure IBE scheme is to ensure that any PPT adversary cannot produce a secret key for a new identity even if it is given the access to the secret key generation oracle KeyGen$(\cdot)$ compared with a CPA-Secure PKE scheme. In the security reduction, the new secret key should be used to solve a computational hard problem.</p>
+<p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}_T$. Under the assumption that the DBDH problem is hard, the CDH problem (given $(g,g^a,g^b)$, compute $Z=g^{ab}$) in group $\mathbb{G}$ must also be hard. Otherwise, the DBDH problem can be solved effectively by computing $e(g^{ab},g^c)=g^{abc}$ and comparing the result with $T$.</p>
 <p>We can set the secret key for identity $I\in\mathbb{Z}_p^\ast$ as $g_2^\alpha\cdot(u^Iv)^r$, where $g_2,u,v$ are from the public parameters, and $r$ is choosen uniformly from $\mathbb{Z}_p^*$. In the security reduction, $\mathcal{B}$ sets $g_2=g^b$, and implicitly sets $\alpha=a$ (but unknown to $\mathcal{B}$). Thus, $g_2^\alpha=g^{ab}$, which is the solution to the CDH problem.</p>
 <p>In order to answer the secret key queries made by $\mathcal{A}$, $\mathcal{B}$ should adjust $(u^Iv)^r$ so that $g_2^\alpha\cdot(u^Iv)^r$ does not have the power of $ab$ (base $g$). Suppose that $u=g^x,v=g^y$ for some $x,y$, then $g_2^\alpha\cdot (u^Iv)^r=g^{ab+(xI+y)r}$.</p>
 <p>Suppose that $\mathcal{A}$ launches a successful attack on a challenge identity $I^\ast$, that is, it outputs $g_2^\alpha\cdot(u^{I^\ast}v)^{r^\ast}=g^{ab}\cdot g^{(xI^\ast+y)r^\ast}$. If $\mathcal{B}$ can compute $g^{(xI^\ast+y)r^\ast}$ by itself, the attack can be reduced to solving the CDH problem by computing $\frac{g^{ab}\cdot g^{(xI^\ast+y)r^\ast}}{g^{(xI^\ast+y)r^\ast}}$. If $g^{xI^\ast+y}$ does not have the power of $a$ or $b$ and we set $g^r$ as a part of secret key in the real scheme, $\mathcal{B}$ can compute $g^{(xI^\ast+y)r^\ast}$ by itself.</p>
@@ -245,7 +245,7 @@
 <li><p>对于攻击:<br>\begin{eqnarray}<br>g^{xI^\ast+y}&amp;=&amp;g^{t_1aI^\ast-t_1aI^\ast+t_2} \nonumber \\<br>&amp;=&amp;g^{t_2}. \nonumber<br>\end{eqnarray}<br>可以被$\mathcal{B}$计算出来. 因此,<br>\begin{eqnarray}<br>\frac{g^{ab}\cdot g^{(xI^\ast+y)r^\ast}}{(g^{r^\ast})^{t_2}}&amp;=&amp;\frac{g^{ab}\cdot g^{t_2r^\ast}}{g^{t_2r^\ast}} \nonumber \\<br>&amp;=&amp;g^{ab}. \nonumber<br>\end{eqnarray}</p>
 </li>
 </ul>
-<h3 id="Using-the-D-l-wBDHI-problem"><a href="#Using-the-D-l-wBDHI-problem" class="headerlink" title="Using the D-l-wBDHI* problem"></a>Using the D-l-wBDHI* problem</h3><h3 id="Construction-1"><a href="#Construction-1" class="headerlink" title="Construction"></a>Construction</h3><ul>
+<h3 id="Construction-1"><a href="#Construction-1" class="headerlink" title="Construction"></a>Construction</h3><ul>
 <li>Setup$(1^\lambda)\rightarrow(pp,mk)$<script type="math/tex; mode=display">D=(p,\mathbb{G},\mathbb{G}_T,e),g\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">\alpha\xleftarrow{$}\mathbb{Z}_p^\ast,g_1=g^\alpha.</script><script type="math/tex; mode=display">u,v\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">g_2\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">pp=(D,g,g_1,g_2,u,v),mk=g_2^\alpha.</script></li>
 <li>KeyGen$(I\in\mathbb{Z}_p^\ast,mk)\rightarrow sk$<script type="math/tex; mode=display">r\xleftarrow{$}\mathbb{Z}_p^\ast.</script><script type="math/tex; mode=display">sk=(g_2^\alpha\cdot(u^Iv)^r,g^r).</script></li>
 <li>Encrypt$(m\in\mathbb{G}_T,I)$<script type="math/tex; mode=display">s\xleftarrow{$}\mathbb{Z}_p^*.</script><script type="math/tex; mode=display">CT=(e(g_1,g_2)^s\cdot m,g^s,(u^Iv)^s).</script></li>
@@ -332,7 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><span class="nav-number">1.</span> <span class="nav-text">A CPA-Secure PKE scheme based on the DBDH problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction"><span class="nav-number">1.1.</span> <span class="nav-text">Construction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPA-Security"><span class="nav-number">1.2.</span> <span class="nav-text">CPA-Security</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-IND-sID-CPA-Secure-IBE-scheme"><span class="nav-number">2.</span> <span class="nav-text">An IND-sID-CPA-Secure IBE scheme</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-the-DBDH-problem"><span class="nav-number">2.1.</span> <span class="nav-text">Using the DBDH problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-the-D-l-wBDHI-problem"><span class="nav-number">2.2.</span> <span class="nav-text">Using the D-l-wBDHI* problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction-1"><span class="nav-number">2.3.</span> <span class="nav-text">Construction</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><span class="nav-number">1.</span> <span class="nav-text">A CPA-Secure PKE scheme based on the DBDH problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction"><span class="nav-number">1.1.</span> <span class="nav-text">Construction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPA-Security"><span class="nav-number">1.2.</span> <span class="nav-text">CPA-Security</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-IND-sID-CPA-Secure-IBE-scheme-based-on-the-DBDH-problem"><span class="nav-number">2.</span> <span class="nav-text">An IND-sID-CPA-Secure IBE scheme based on the DBDH problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Construction-1"><span class="nav-number">2.1.</span> <span class="nav-text">Construction</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
