@@ -54,7 +54,7 @@
 <meta property="og:description" content="PART 1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-17T12:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-18T07:04:24.284Z">
+<meta property="article:modified_time" content="2020-08-18T07:14:18.997Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Security Reduction">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-18 15:04:24" itemprop="dateModified" datetime="2020-08-18T15:04:24+08:00">2020-08-18</time>
+                <time title="Modified: 2020-08-18 15:14:18" itemprop="dateModified" datetime="2020-08-18T15:14:18+08:00">2020-08-18</time>
               </span>
 
           
@@ -217,7 +217,7 @@
         <p>PART 1<br><a id="more"></a></p>
 <h2 id="A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem"><a href="#A-CPA-Secure-PKE-scheme-based-on-the-DBDH-problem" class="headerlink" title="A CPA-Secure PKE scheme based on the DBDH problem"></a>A CPA-Secure PKE scheme based on the DBDH problem</h2><p>For an instance of the DBDH problem $(g,g^a,g^b,g^c,T)$, the task is to determine whether $T$ is equal to $e(g,g)^{abc}$ or is selected uniformly from $\mathbb{G}_T$. We can set the ciphertext as $T\cdot m$, and the “random-looking” value $T=e(g,g)^{abc}=e(g^a,g^b)^c=e(g_1,g_2)^r$ (in the real world).</p>
 <h3 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h3><ul>
-<li>Setup$(1^\lambda)\rightarrow pp$<script type="math/tex; mode=display">D=(p,\mathbb{G},\mathbb{G}_T,e),g\xleftarrow{$}\mathbb{G}</script><script type="math/tex; mode=display">pp=(D,g).</script></li>
+<li>Setup$(1^\lambda)\rightarrow pp$<script type="math/tex; mode=display">D=(p,\mathbb{G},\mathbb{G}_T,e),g\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">pp=(D,g).</script></li>
 <li>KeyGen$(pp)\rightarrow (pk,sk)$<script type="math/tex; mode=display">\alpha\xleftarrow{$}\mathbb{Z}_p^*,g_1=g^\alpha,g_2\xleftarrow{$}\mathbb{G}.</script><script type="math/tex; mode=display">pk=(g_1,g_2),sk=\alpha.</script></li>
 <li>Encrypt$(m\in\mathbb{G}_T,pk)$<script type="math/tex; mode=display">s\xleftarrow{$}\mathbb{Z}_p^*.</script><script type="math/tex; mode=display">CT=(e(g_1,g_2)^r\cdot m,g^r).</script></li>
 <li>Decrypt$(CT=(C_1,C_2),sk)$<script type="math/tex; mode=display">\frac{C_1}{e(C_2^\alpha,g_2)}=m.</script></li>
