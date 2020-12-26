@@ -46,15 +46,20 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Alan1898&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="Two attribute-based encryption schemes.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Waters11 and RW13">
+<meta property="og:url" content="http://yoursite.com/2020/12/26/waters11-and-rw13/index.html">
 <meta property="og:site_name" content="Alan1898&#39;s Blog">
+<meta property="og:description" content="Two attribute-based encryption schemes.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-26T12:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-26T12:52:14.023Z">
 <meta property="article:author" content="Alan1898">
+<meta property="article:tag" content="Schemes">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/">
+<link rel="canonical" href="http://yoursite.com/2020/12/26/waters11-and-rw13/">
 
 
 <script id="page-configurations">
@@ -62,11 +67,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | Alan1898's Blog</title>
+  <title>Waters11 and RW13 | Alan1898's Blog</title>
   
 
 
@@ -160,89 +165,94 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/26/waters11-and-rw13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alan1898">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alan1898's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Waters11 and RW13
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-26 20:00:00 / Modified: 20:52:14" itemprop="dateCreated datePublished" datetime="2020-12-26T20:00:00+08:00">2020-12-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>Two attribute-based encryption schemes.<br><a id="more"></a></p>
+<h2 id="Waters11-CP"><a href="#Waters11-CP" class="headerlink" title="Waters11 (CP)"></a>Waters11 (CP)</h2><p>Water11 is based on the partitioning strategy, the basis of partitioning for key generation query is as follows: suppose that there is an access structure $(M,\rho)$, for any unauthorized set of rows $I$, there exists a vector $\vec{w}$, such that $w_1\neq0$ and $\vec{w}\cdot \vec{M_i}=0$ for any $i\in I$.</p>
+<p>For a key generation query on an unauthorized set $S$ of attributes, the simulator should create the corresponding private key. The main parts of private key we should pay attention to are $K=g^\alpha g^{at}$ and $K_x=h_x^t, \forall x\in S$.</p>
+<ul>
+<li><p>Since $g^\alpha$ has a term of $g^{a^{q+1}}$, $t$ should have a term of $-a^q$ in order for $K$ being simulated successfully. We let $w_1=-1$ to embed the partitioning strategy, and then $t$ contains a term of $w_1a^q$.</p>
+</li>
+<li><p>For each attribute $x\in S$, let $X$ be the set $\{i:\rho^\ast(i)=x,i\in[l^\ast]\}$ and we should simulate $h_x^t$. </p>
+<ul>
+<li>If $X=\varnothing$, $x$ does not influence the partitioning and $h_x$ can be any random value. </li>
+<li>If $X\neq\varnothing$, $x$ is related to some rows of $M^\ast$. We let $h_x^t$ contain something like $g^{\vec{w}\cdot\vec{M_i}\cdot a^{q+1}}$ to achieve the partitioning strategy. So $w_1a^q$ should be related with $aM^\ast_{i,1}$, and then we can assign <script type="math/tex; mode=display">w_1a^q\rightsquigarrow aM^\ast_{i,1},</script><script type="math/tex; mode=display">w_2a^{q-1}\rightsquigarrow a^2M^\ast_{i,2},</script><script type="math/tex; mode=display">\vdots</script><script type="math/tex; mode=display">w_{n^\ast}a^{q-n^\ast+1}\rightsquigarrow a^{n^\ast}M^\ast_{i,n^\ast}.</script>The simulator sets<script type="math/tex; mode=display">t=\tilde{t}+w_1a^q+w_2a^{q-1}+\cdots+w_na^{q-n^\ast+1}</script>and<script type="math/tex; mode=display">h_x=g^{z_x}\prod\limits_{i\in X}g^{(aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast})/b_i}</script>(which is also suitable for the first case). The existance of the ‘$/b_i$’ part is due to the simulation of $C_i$ during the challenge phase, and the additional items caused by this should be added to the assumption. When $\rho(\cdot)$ is required to be an injective function, the simulator can set<script type="math/tex; mode=display">h_x=g^{z_x}g^{aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast}}</script>where $\rho^\ast(i)=x$, and we can use weaker assumption (the construction can also be simplified).</li>
+</ul>
+</li>
+</ul>
+<p>For the challenge ciphertext, </p>
+<h2 id="RW13-the-CP-one"><a href="#RW13-the-CP-one" class="headerlink" title="RW13 (the CP one)"></a>RW13 (the CP one)</h2><h2 id="What-are-necessary-in-an-ABE-scheme"><a href="#What-are-necessary-in-an-ABE-scheme" class="headerlink" title="What are necessary in an ABE scheme"></a>What are necessary in an ABE scheme</h2>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-26T20:00:00+08:00"
-              content="2020-12-26">
-          12-26
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Schemes/" rel="tag"># Schemes</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/12/26/waters11-and-rw13/" itemprop="url">
-            <span itemprop="name">Waters11 and RW13</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-26T18:00:00+08:00"
-              content="2020-12-26">
-          12-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/12/26/security-model/" itemprop="url">
-            <span itemprop="name">Security Model</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-22T15:05:46+08:00"
-              content="2020-01-22">
-          01-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/22/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/26/security-model/" rel="prev" title="Security Model">
+      <i class="fa fa-chevron-left"></i> Security Model
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -293,6 +303,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Waters11-CP"><span class="nav-number">1.</span> <span class="nav-text">Waters11 (CP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RW13-the-CP-one"><span class="nav-number">2.</span> <span class="nav-text">RW13 (the CP one)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-necessary-in-an-ABE-scheme"><span class="nav-number">3.</span> <span class="nav-text">What are necessary in an ABE scheme</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,7 +385,7 @@
 <script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -398,6 +409,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
