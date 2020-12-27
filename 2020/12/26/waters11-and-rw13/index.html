@@ -54,7 +54,7 @@
 <meta property="og:description" content="Two attribute-based encryption schemes.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-26T12:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-27T03:12:30.014Z">
+<meta property="article:modified_time" content="2020-12-27T03:25:10.568Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Schemes">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-27 11:12:30" itemprop="dateModified" datetime="2020-12-27T11:12:30+08:00">2020-12-27</time>
+                <time title="Modified: 2020-12-27 11:25:10" itemprop="dateModified" datetime="2020-12-27T11:25:10+08:00">2020-12-27</time>
               </span>
 
           
@@ -223,7 +223,7 @@
 <li><p>For each attribute $x\in S$, let $X$ be the set $\{i:\rho^\ast(i)=x,i\in[l^\ast]\}$ and we should simulate $h_x^t$. </p>
 <ul>
 <li>If $X=\varnothing$, $x$ does not influence the partitioning and $h_x$ can be any random value. </li>
-<li>If $X\neq\varnothing$, $x$ is related to some rows of $M^\ast$. We let $h_x^t$ contain something like $g^{\vec{w}\cdot\vec{M_i}\cdot a^{q+1}}$ to achieve the partitioning strategy. So $w_1a^q$ should be related with $aM^\ast_{i,1}$, and then we can assign <script type="math/tex; mode=display">w_1a^q\rightsquigarrow aM^\ast_{i,1},</script><script type="math/tex; mode=display">w_2a^{q-1}\rightsquigarrow a^2M^\ast_{i,2},</script><script type="math/tex; mode=display">\vdots</script><script type="math/tex; mode=display">w_{n^\ast}a^{q-n^\ast+1}\rightsquigarrow a^{n^\ast}M^\ast_{i,n^\ast}.</script>The simulator sets<script type="math/tex; mode=display">t=\tilde{t}+w_1a^q+w_2a^{q-1}+\cdots+w_na^{q-n^\ast+1}</script>and<script type="math/tex; mode=display">h_x=g^{z_x}\prod\limits_{i\in X}g^{(aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast})/b_i}</script>(which is also suitable for the first case). The existance of the ‘$/b_i$’ part is due to the simulation of $C_i$ during the challenge phase, and the additional items caused by this should be added to the assumption. When $\rho(\cdot)$ is required to be an injective function, the simulator can set<script type="math/tex; mode=display">h_x=g^{z_x}g^{aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast}}</script>where $\rho^\ast(i)=x$, and we can use weaker assumption (the construction can also be simplified).</li>
+<li>If $X\neq\varnothing$, $x$ is related to some rows of $M^\ast$. We let $h_x^t$ contain something like $g^{\vec{w}\cdot\vec{M_i}\cdot a^{q+1}}$ to achieve the partitioning strategy. Thus, $w_1a^q$ should be related with $aM^\ast_{i,1}$, and then we can assign <script type="math/tex; mode=display">w_1a^q\rightsquigarrow aM^\ast_{i,1},</script><script type="math/tex; mode=display">w_2a^{q-1}\rightsquigarrow a^2M^\ast_{i,2},</script><script type="math/tex; mode=display">\vdots</script><script type="math/tex; mode=display">w_{n^\ast}a^{q-n^\ast+1}\rightsquigarrow a^{n^\ast}M^\ast_{i,n^\ast}.</script>The simulator sets<script type="math/tex; mode=display">t=\tilde{t}+w_1a^q+w_2a^{q-1}+\cdots+w_na^{q-n^\ast+1}</script>and<script type="math/tex; mode=display">h_x=g^{z_x}\prod\limits_{i\in X}g^{(aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast})/b_i}</script>(which is also suitable for the first case). The existance of the ‘$/b_i$’ part is due to the simulation of $C_i$ during the challenge phase, and the additional items caused by this should be added to the assumption. When $\rho(\cdot)$ is required to be an injective function, the simulator can set<script type="math/tex; mode=display">h_x=g^{z_x}g^{aM^\ast_{i,1}+a^2M^\ast_{i,2}+\cdots+a^{n^\ast}M^\ast_{i,n^\ast}}</script>where $\rho^\ast(i)=x$, and we can use weaker assumption (the construction can also be simplified).</li>
 </ul>
 </li>
 </ul>
