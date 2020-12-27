@@ -54,7 +54,7 @@
 <meta property="og:description" content="Two attribute-based encryption schemes.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-26T12:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-26T12:52:14.023Z">
+<meta property="article:modified_time" content="2020-12-27T03:12:30.014Z">
 <meta property="article:author" content="Alan1898">
 <meta property="article:tag" content="Schemes">
 <meta name="twitter:card" content="summary">
@@ -192,10 +192,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-26 20:00:00 / Modified: 20:52:14" itemprop="dateCreated datePublished" datetime="2020-12-26T20:00:00+08:00">2020-12-26</time>
+              <time title="Created: 2020-12-26 20:00:00" itemprop="dateCreated datePublished" datetime="2020-12-26T20:00:00+08:00">2020-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-27 11:12:30" itemprop="dateModified" datetime="2020-12-27T11:12:30+08:00">2020-12-27</time>
+              </span>
 
           
 
@@ -210,7 +216,7 @@
       
         <p>Two attribute-based encryption schemes.<br><a id="more"></a></p>
 <h2 id="Waters11-CP"><a href="#Waters11-CP" class="headerlink" title="Waters11 (CP)"></a>Waters11 (CP)</h2><p>Water11 is based on the partitioning strategy, the basis of partitioning for key generation query is as follows: suppose that there is an access structure $(M,\rho)$, for any unauthorized set of rows $I$, there exists a vector $\vec{w}$, such that $w_1\neq0$ and $\vec{w}\cdot \vec{M_i}=0$ for any $i\in I$.</p>
-<p>For a key generation query on an unauthorized set $S$ of attributes, the simulator should create the corresponding private key. The main parts of private key we should pay attention to are $K=g^\alpha g^{at}$ and $K_x=h_x^t, \forall x\in S$.</p>
+<p>For a key generation query on an unauthorized set $S$ of attributes, the simulator should create the corresponding private key. The main parts of the private key we should pay attention to are $K=g^\alpha g^{at}$ and $K_x=h_x^t, \forall x\in S$.</p>
 <ul>
 <li><p>Since $g^\alpha$ has a term of $g^{a^{q+1}}$, $t$ should have a term of $-a^q$ in order for $K$ being simulated successfully. We let $w_1=-1$ to embed the partitioning strategy, and then $t$ contains a term of $w_1a^q$.</p>
 </li>
